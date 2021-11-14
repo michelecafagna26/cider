@@ -74,13 +74,15 @@ python3 -m spacy download en_core_web_sm
 4. CIDEr scores are stored in "scores" variable: scores['CIDEr'] -> CIDEr scores, scores['CIDErD'] -> CIDEr-D scores
 
 <sup>*</sup>Even when evaluating with independent candidate/references (for eg. when using "coco-val-df"), put multiple candidate and reference entries into the same json files. This is much faster than having separate candidate and reference files and calling the evaluation code separately on each candidate/reference file.
+
 ## References ##
 
 - PTBTokenizer: We use the [Stanford Tokenizer](http://nlp.stanford.edu/software/tokenizer.shtml) which is included in [Stanford CoreNLP 3.4.1](http://nlp.stanford.edu/software/corenlp.shtml).
 - CIDEr: [CIDEr: Consensus-based Image Description Evaluation] (http://arxiv.org/pdf/1411.5726.pdf)
+- python3 adaptation of the original repo: https://github.com/daqingliu/cider
 
 ## Developers ##
-- Ramakrishna Vedantam (Virgina Tech)
+- Ramakrishna Vedantam (Virgina Tech) (origianl repo)
 
 ## Acknowledgments ##
 - MS COCO Caption Evaluation Team
