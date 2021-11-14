@@ -57,7 +57,13 @@ class CiderScorer(object):
         
         if len(self.document_frequency) > 0:
             with open(df_name + '.p', "wb") as fp:
-                pickle.dump(self.document_frequency, fp)
+
+                df_idf = {
+                    "ref_len" : np.log(float(len(self.crefs))),
+                    "df": self.document_frequency
+                }
+
+                pickle.dump(df_idf, fp)
         else:
             raise ValueError("document frequency not computed run 'compute_score'")
 
@@ -74,11 +80,13 @@ class CiderScorer(object):
         self.sigma = sigma
         self.crefs = []
         self.ctest = []
+        self.ref_len = None
         self.df_mode = df_mode
         if self.df_mode != "corpus":
-            self.document_frequency = pickle.load(open(os.path.join('data', df_mode + '.p'), 'rb'), encoding='iso-8859-1')
+             df = pickle.load(open(os.path.join('data', df_mode + '.p'), 'rb'), encoding='iso-8859-1')
+             self.document_frequency = df['df']
+             self.ref_len = df['ref_len']
         self.cook_append(test, refs)
-        self.ref_len = None
 
     def clear(self):
         self.crefs = []
@@ -179,9 +187,11 @@ class CiderScorer(object):
         # compute log reference length
         if self.df_mode == "corpus":
             self.ref_len = np.log(float(len(self.crefs)))
-        elif self.df_mode == "coco-val":
+        #elif self.df_mode == "coco-val":
             # if coco option selected, use length of coco-val set
-            self.ref_len = np.log(float(40504))
+            #self.ref_len = np.log(float(40504))
+
+        
 
         scores = []
         for test, refs in zip(self.ctest, self.crefs):
