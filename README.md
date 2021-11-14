@@ -6,7 +6,7 @@ CIDEr-D (CIDEr Defended) which is more robust to gaming effects.
 
 ## Important Note ##
 
-In this implementation the PTBTokenizer is replaced with the Spacy tokenizer, to remove the java dependency.
+In this implementation the PTBTokenizer is replaced by the Spacy tokenizer, to remove the java dependency.
 
 PTBTokenizer is stil prensent and java is required for testing purposes.
 
@@ -24,7 +24,7 @@ I tryed to keep the tokenization as close as possible but at the moment there ar
 Below, the difference in the final Cider score by using the Spacy tokenizer:
 
 1) Document Frequency (df) in 'coco-val' mode
-- diff = 0.00046763054336429466
+- diff: 0.00046763054336429466
 
 2) Document Frequency (df) in 'corpus' mode
 - spacy tokenizer : 0.5870925361541144
@@ -35,7 +35,7 @@ Below, the difference in the final Cider score by using the Spacy tokenizer:
 ## System requirements for running ##
 - python 3.6 
 
-## System for testing
+## System requirements for testing
 - python 3.6
 - java 1.8.0
 
