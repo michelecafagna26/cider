@@ -19,7 +19,7 @@ setuptools.setup(
         "Operating System :: OS Independent",
     ],
     install_requires=[
-        "spacy==3.2.0",
+        "spacy==3.1.4",
         "jupyter==1.0.0",
     ],
     python_requires='>=3.6',
