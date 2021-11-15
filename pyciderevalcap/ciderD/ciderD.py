@@ -50,5 +50,8 @@ class CiderD:
 
         return score, scores
 
+    def save_df(self, df_name="corpus"):
+        self.cider_scorer.save_df(df_name)
+
     def method(self):
         return "CIDEr-D"
