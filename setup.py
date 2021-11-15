@@ -20,7 +20,7 @@ setuptools.setup(
     ],
     install_requires=[
         "spacy==3.2.0",
-        "jupyetr==1.0.0",
+        "jupyter==1.0.0",
     ],
     python_requires='>=3.6',
 )
