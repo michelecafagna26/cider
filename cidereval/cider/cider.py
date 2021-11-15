@@ -10,6 +10,8 @@
 # Authors: Ramakrishna Vedantam <vrama91@vt.edu> and
 # Tsung-Yi Lin <tl483@cornell.edu>
 
+# edited by Michele Cafagna
+
 from .cider_scorer import CiderScorer
 
 
