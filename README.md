@@ -4,38 +4,19 @@ Consensus-based Image Description Evaluation (CIDEr Code)
 Evaluation code for CIDEr metric. Provides CIDEr as well as
 CIDEr-D (CIDEr Defended) which is more robust to gaming effects.
 
-## Important Note ##
+## Important Note
 
-In this implementation the PTBTokenizer is replaced by the Spacy tokenizer, to remove the java dependency.
+In this implementations we provide an alternatie tokenizer to the PTBtokenizer in order to remove the java dependecy.
+The new tokenizer is based on Spacy (SimpleTokenizer.py)
 
-PTBTokenizer is stil prensent and java is required for testing purposes.
+However, I suggest to use the original PTBTokenizer as the tokenization is not exactly the same and the former is also faster (about 3x faster) than the spacy tokenizer.
 
-**The tokenization is not exactly the same**
-
-I tryed to keep the tokenization as close as possible but at the moment there are small differences:
-
-- PTB Tokenizer does not tokenize 'word/word' (word separated by slashes)
-
-- PTB Tokenizer tokenize '(word)' (words in brackets) with special tokens like '-lrb-'
-
-- In both the cases Spacy tokenize them as 3 separate tokens
-
-
-Below, the difference in the final Cider score by using the Spacy tokenizer:
-
-1) Document Frequency (df) in 'coco-val' mode
-- diff: 0.00046763054336429466
-
-2) Document Frequency (df) in 'corpus' mode
-- spacy tokenizer : 0.5870925361541144
-- PTB tokenizer: 0.5876485026978251
-- diff: 0.0005559665437107064
-
+For detail regarding performance look [here](important_note.md)
 
 ## System requirements for running ##
 - python 3.6 
 
-## System requirements for testing
+## System requirements for testing and PTBTokenizer
 - python 3.6
 - java 1.8.0
 
@@ -47,7 +28,7 @@ pip install -r requirements.txt
 python3 -m spacy download en_core_web_sm
 ```
 
-## 
+***
 
 ## Files ##
 ./
