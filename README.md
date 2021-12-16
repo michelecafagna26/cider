@@ -6,12 +6,12 @@ CIDEr-D (CIDEr Defended) which is more robust to gaming effects.
 
 ## Important Note
 
-In this implementations we provide an alternatie tokenizer to the PTBtokenizer in order to remove the java dependecy.
+In this implementations we provide an alternative tokenizer to the PTBtokenizer in order to remove the java dependecy.
 The new tokenizer is based on Spacy (SimpleTokenizer.py)
 
 However, I suggest to use the original PTBTokenizer as the tokenization is not exactly the same and the former is also faster (about 3x faster) than the spacy tokenizer.
 
-For detail regarding performance look [here](important_note.md)
+For detail regarding performance look [here](important_note.md).
 
 ## System requirements for running ##
 - python 3.6 
@@ -98,8 +98,6 @@ scorer = Cider(df='new_corpus') # use new_corpus idf
 e compute the scores as above
 
 N.B Remember that if you save your idf file as ```corpus.p```, when you'll initialize the scorer, it will not load it and it will compute the idf on-the-fly (i.e Cider(df='corpus') # corpus mode )
-
-
 
 ## Files ##
 ./
