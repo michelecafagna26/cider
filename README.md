@@ -30,6 +30,74 @@ python3 -m spacy download en_core_web_sm
 
 ***
 
+## Quick Usage
+
+```
+from cidereval.tokenizer import PTBTokenizer
+from cidereval import CiderD, Cider
+
+# load reference and candidate sentences
+loadDat = LoadData(pathToData)
+gts, res = loadDat.readJson(refName, candName)
+
+tokenizer_res = PTBTokenizer('res')
+_res= tokenizer.tokenize(res)
+
+tokenizer_gts = PTBTokenizer('gts')
+_gts= tokenizer.tokenize(gts)
+
+scorer = Cider(df='coco-val') # use coco-val idf
+scorerD = CiderD(df='coco-val')
+
+score, scores = scorer.compute_score(_gts, _res)
+scoreD, scoresD = scorerD.compute_score(_gts, _res)
+
+print(score)
+print(scoreD)
+
+```
+
+## Reference corpus different from coco-val
+You can use ```gts``` as reference corpus and compute idf w.r.t to it by initializing the scorer in corpus mode: ```df='corpus'```
+
+```
+# tokenize gts and res
+
+# compute idf on gts
+scorer = Cider(df='corpus') # corpus mode
+scorerD = CiderD(df='corpus') 
+
+score, scores = scorer.compute_score(_gts, _res)
+scoreD, scoresD = scorerD.compute_score(_gts, _res)
+
+print(score)
+print(scoreD)
+
+```
+
+In this way the idfs are computed on the fly. <br> 
+To **re-use them**, save them first, by calling:
+
+
+```
+scorer.save_df(df_name="new_corpus") # saving idfs
+
+```
+They will be saved in  ```new_corpus.p``` file.<br>
+
+Move the new idf file in ```data/``` to make it visible. <br>
+Then, initialize the scorer running:
+
+```
+scorer = Cider(df='new_corpus') # use new_corpus idf
+
+```
+e compute the scores as above
+
+N.B Remember that if you save you idf as ```corpus.p```, when you'll initialize the score, it would have no effect and the idf will be computed on the fly (i.e Cider(df='corpus') # corpus mode )
+
+
+
 ## Files ##
 ./
 - cidereval.py (demo script)
