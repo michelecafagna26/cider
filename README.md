@@ -61,7 +61,7 @@ print(scoreD)
 ```
 
 ## Reference corpus different from coco-val
-You can use ```gts``` as reference corpus and compute idf w.r.t to it by initializing the scorer in corpus mode: ```df='corpus'```
+You can use ```gts``` as reference corpus and compute the idf w.r.t to it by initializing the scorer in corpus mode: ```df='corpus'```
 
 ```
 # tokenize gts and res
@@ -78,7 +78,7 @@ print(scoreD)
 
 ```
 
-In this way the idfs are computed on the fly. <br> 
+In this way the idfs are computed on-the-fly. <br> 
 To **re-use them**, save them first, by calling:
 
 
@@ -97,7 +97,7 @@ scorer = Cider(df='new_corpus') # use new_corpus idf
 ```
 e compute the scores as above
 
-N.B Remember that if you save you idf as ```corpus.p```, when you'll initialize the score, it would have no effect and the idf will be computed on the fly (i.e Cider(df='corpus') # corpus mode )
+N.B Remember that if you save your idf file as ```corpus.p```, when you'll initialize the scorer, it will not load it and it will compute the idf on-the-fly (i.e Cider(df='corpus') # corpus mode )
 
 
 
