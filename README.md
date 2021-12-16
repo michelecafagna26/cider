@@ -22,10 +22,13 @@ For detail regarding performance look [here](important_note.md)
 
 ## Installation
 
+clone this repository then:
+
 ```
-pip install -r requirements.txt
+pip install .
 
 python3 -m spacy download en_core_web_sm
+
 ```
 
 ***
