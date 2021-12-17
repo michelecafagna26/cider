@@ -27,6 +27,34 @@ class PTBTokenizer:
         self.source = _source
 
     def tokenize(self, captions_for_image):
+        """Tokenize a sample
+
+        Args:
+            captions_for_image : 
+
+                IF _source='gts' follows format:
+                    dict: { str : [
+                        { "caption" : str },
+                        { "caption" : str },
+                        ...
+                            ],
+                      str : [ ... ],
+                      ...
+                    }
+                IF  _source='res' follows format:
+                    list: [ {"image_id" : str,
+                             "caption" : str,  
+                            }, 
+                            ...    
+                            ]
+        Returns:  
+            final_tokenized_captions_for_index:
+                list: [ {"image_id" : str,
+                                    "caption" : str,  
+                                    }, 
+                                    ...    
+                                    ]
+        """
         cmd = ['java', '-cp', STANFORD_CORENLP_3_4_1_JAR,
                'edu.stanford.nlp.process.PTBTokenizer',
                '-preserveLines', '-lowerCase']
