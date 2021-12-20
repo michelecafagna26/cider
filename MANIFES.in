@@ -1,0 +1,5 @@
+include pyproject.toml
+include LICENSE
+include important_note.md
+include README.md
+recursive-include cidereval *.p

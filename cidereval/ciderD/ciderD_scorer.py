@@ -4,13 +4,15 @@
 
 # edited by Michele Cafagna
 
-import copy
+from pathlib import Path
 from collections import defaultdict
-import numpy as np
-import pdb
-import math
 import pickle
-import os
+import math
+from copy import copy
+
+from importlib_resources import files, as_file
+import numpy as np
+import cidereval.data
 
 def precook(s, n=4, out=False):
     """
@@ -52,10 +54,33 @@ class CiderScorer(object):
     """CIDEr scorer.
     """
 
-    def save_df(self, df_name="corpus"):
-        
+    def save_df(self, df_name="corpus", path=None):
+        """Save the idf computed in corpus mode
+
+        Args:
+            df_name (str, optional): [description]. Defaults to "corpus". name of idf file
+            (without the file exntension)
+
+            df_name (str, optional): [description]. Defaults to None. path of the idf if note provided
+            it will be used  the home directory
+        Raises:
+            ValueError: [description] if you try to call this method before computing the scores
+        """
+
+        if path:
+            path = Path(path)
+
+            if not path.exists():
+                path=Path.home()
+                print(f"the path provided is not valid. The df will be saved in {path}")
+        else:
+            path=Path.home()
+            print(f"the path provided is not valid. The df will be saved in {path}")
+
+        filename = Path(path, df_name + '.p')
+
         if len(self.document_frequency) > 0:
-            with open(df_name + '.p', "wb") as fp:
+            with open(filename, "wb") as fp:
 
                 df_idf = {
                     "ref_len" : np.log(float(len(self.crefs))),
@@ -63,6 +88,7 @@ class CiderScorer(object):
                 }
 
                 pickle.dump(df_idf, fp)
+                print(f"saved to {filename}")
         else:
             raise ValueError("document frequency not computed run 'compute_score'")
 
@@ -82,8 +108,20 @@ class CiderScorer(object):
         self.ctest = []
         self.df_mode = df_mode
         self.ref_len = None
+
         if self.df_mode != "corpus":
-            df = pickle.load(open(os.path.join('data', df_mode + '.p'), 'rb'), encoding='iso-8859-1')
+            if self.df_mode !="coco-val":
+                try:
+                    with open(self.df_mode, 'rb') as fp:
+                        df = pickle.load(fp, encoding='iso-8859-1')
+                except FileNotFoundError as e:
+                    print(f"Error retrieveing {self.df_mode}. df_mode set to 'coco-val'")
+            else:
+                df_path = files(cidereval.data).joinpath(self.df_mode  + '.p')
+                with as_file(df_path)as res:
+                    with open(res, 'rb') as fp:
+                        df = pickle.load(fp, encoding='iso-8859-1')
+
             self.document_frequency = df['df']
             self.ref_len = df['ref_len']
 
