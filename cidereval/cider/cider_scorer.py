@@ -74,10 +74,10 @@ class CiderScorer(object):
 
             if not path.exists():
                 path=Path.home()
-                print("the path provided is not valid. The df will be saved in {path}")
+                print(f"the path provided is not valid. The df will be saved in {path}")
         else:
             path=Path.home()
-            print("the path provided is not valid. The df will be saved in {path}")
+            print(f"the path provided is not valid. The df will be saved in {path}")
 
         filename = Path(path, df_name + '.p')
 
