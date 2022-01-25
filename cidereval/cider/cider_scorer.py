@@ -116,7 +116,13 @@ class CiderScorer(object):
                     with open(self.df_mode, 'rb') as fp:
                         df = pickle.load(fp, encoding='iso-8859-1')
                 except FileNotFoundError as e:
-                    print(f"Error retrieveing {self.df_mode}. df_mode set to 'coco-val'")
+                    print(f"Error retrieveing {self.df_mode}.p df_mode set to 'coco-val'")
+
+                    self.df_mode="coco-val"
+                    df_path = files(cidereval.data).joinpath(self.df_mode  + '.p')
+                    with as_file(df_path)as res:
+                        with open(res, 'rb') as fp:
+                            df = pickle.load(fp, encoding='iso-8859-1')
             else:
                 df_path = files(cidereval.data).joinpath(self.df_mode  + '.p')
                 with as_file(df_path)as res:
