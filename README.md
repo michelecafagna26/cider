@@ -31,7 +31,14 @@ python3 -m spacy download en_core_web_sm
 
 ```
 
+or install it in your environment from github:
+
+```
+pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
+```
+
 ***
+
 
 ## Quick Usage
 
