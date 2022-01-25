@@ -1,4 +1,15 @@
+
+import pathlib
+
+import pkg_resources
 import setuptools
+
+with pathlib.Path('requirements.txt').open() as requirements_txt:
+    install_requires = [
+        str(requirement)
+        for requirement
+        in pkg_resources.parse_requirements(requirements_txt)
+    ]
 
 with open("README.md", "r") as fh:
     long_description = fh.read()
@@ -19,9 +30,6 @@ setuptools.setup(
         "License :: license.txt",
         "Operating System :: OS Independent",
     ],
-    install_requires=[
-        "spacy==3.1.4",
-        "jupyter==1.0.0",
-    ],
+    install_requires=install_requires,
     python_requires='>=3.6',
 )
