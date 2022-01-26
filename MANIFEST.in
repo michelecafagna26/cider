@@ -3,3 +3,4 @@ include LICENSE
 include important_note.md
 include README.md
 recursive-include cidereval *.p
+include cidereval/tokenizer/stanford-corenlp-3.4.1.jar
