@@ -90,16 +90,16 @@ To **re-use them**, save them first, by calling:
 
 
 ```
-scorer.save_df(df_name="new_corpus") # saving idfs
+scorer.save_df(df_name="path/to/new_corpus") # saving idfs
 
 ```
-They will be saved in  ```new_corpus.p``` file.<br>
+They will be saved in  ```path/to/new_corpus.p``` file.<br>
 
 Move the new idf file in ```data/``` to make it visible. <br>
 Then, initialize the scorer running:
 
 ```
-scorer = Cider(df='new_corpus') # use new_corpus idf
+scorer = Cider(df='path/to/new_corpus.p') # use new_corpus idf
 
 ```
 e compute the scores as above
