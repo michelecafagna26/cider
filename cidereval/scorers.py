@@ -37,7 +37,7 @@ def cider(refs, preds, df="corpus"):
 
     score, scores = scorer.compute_score(_gts, _res)
 
-    return{ "avg_score": score, "scores": scores}
+    return { "avg_score": score, "scores": scores}
 
 
 def ciderD(refs, preds, df="corpus"):
@@ -53,4 +53,4 @@ def ciderD(refs, preds, df="corpus"):
 
     score, scores = scorer.compute_score(_gts, _res)
 
-    return{ "avg_score": score, "scores": scores}
+    return { "avg_score": score, "scores": scores}
