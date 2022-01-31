@@ -40,7 +40,25 @@ pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
 ***
 
 
-## Quick Usage
+## Quick usage
+
+
+```
+from cidereval.scores import cider
+
+# refs and preds are lists of string, the method will think to re-format them accordingly
+
+cider_scores = cider(refs, preds, df="corpus")
+#cider_scores is a dict-like object with "avg_score" and "scores"
+
+
+```
+
+
+## Quick Usage (Original interface)
+
+The code is compatible with the original interface which requies a particular formatting of the data to be fed into the tokenizers
+Here's an example: 
 
 ```
 from cidereval.tokenizer import PTBTokenizer
