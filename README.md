@@ -44,9 +44,9 @@ pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
 
 
 ```
-from cidereval.scores import cider
+from cidereval import cider, ciderD
 
-# refs and preds are lists of string, the method will think to re-format them accordingly
+# refs and preds are lists of strings, the method will re-format them for you
 
 cider_scores = cider(refs, preds, df="corpus")
 #cider_scores is a dict-like object with "avg_score" and "scores"
