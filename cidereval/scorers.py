@@ -46,8 +46,8 @@ def ciderD(refs, preds, df="corpus"):
     tokenizer_res = PTBTokenizer('res')
     tokenizer_gts = PTBTokenizer('gts')
 
-    _gts = tokenizer_gts(gts)
-    _res = tokenizer_res(res)
+    _gts = tokenizer_gts.tokenize(gts)
+    _res = tokenizer_res.tokenize(res)
 
     scorer = CiderD(df=df)
 
