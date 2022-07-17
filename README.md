@@ -1,8 +1,8 @@
-Consensus-based Image Description Evaluation (CIDEr Code)
+Pythonic wrappers for Consensus-based Image Description Evaluation (CIDEr Code)
 ===================
 
 Evaluation code for CIDEr metric. Provides CIDEr as well as
-CIDEr-D (CIDEr Defended) which is more robust to gaming effects.
+CIDEr-D (CIDEr Defended) which is more robust to gaming effects
 
 ## Important Note
 
