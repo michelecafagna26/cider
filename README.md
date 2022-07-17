@@ -40,7 +40,7 @@ pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
 ***
 
 
-## Quick usage
+## Quick usage (PTBTokenizer by default)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1x6YNmHz87mwX6fmZwjbsRpCJcvbzbmst?authuser=1#scrollTo=QVHvbzgugq6D)
 ```
@@ -61,6 +61,7 @@ Here's an example:
 
 ```
 from cidereval.tokenizer import PTBTokenizer
+from cider.tokenier import SimpleTokenizer # for the spacy tokenizer
 from cidereval import CiderD, Cider
 
 # load reference and candidate sentences
