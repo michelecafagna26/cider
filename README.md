@@ -42,7 +42,7 @@ pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
 
 ## Quick usage
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1x6YNmHz87mwX6fmZwjbsRpCJcvbzbmst?authuser=1#scrollTo=QVHvbzgugq6D)]
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1x6YNmHz87mwX6fmZwjbsRpCJcvbzbmst?authuser=1#scrollTo=QVHvbzgugq6D)
 ```
 from cidereval import cider, ciderD
 
