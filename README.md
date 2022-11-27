@@ -24,7 +24,7 @@ For detail regarding performance look [here](important_note.md).
 
 clone this repository then:
 
-```
+```bash
 pip install .
 
 python3 -m spacy download en_core_web_sm
@@ -33,7 +33,7 @@ python3 -m spacy download en_core_web_sm
 
 or install it in your environment from github:
 
-```
+```bash
 pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
 ```
 
@@ -43,7 +43,8 @@ pip install git+https://github.com/michelecafagna26/cider.git#egg=cidereval
 ## Quick usage (PTBTokenizer by default)
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1x6YNmHz87mwX6fmZwjbsRpCJcvbzbmst?authuser=1#scrollTo=QVHvbzgugq6D)
-```
+
+```python
 from cidereval import cider, ciderD
 
 # refs and preds are lists of strings, the method will re-format them for you
@@ -56,10 +57,10 @@ cider_scores = cider(refs, preds, df="corpus")
 
 ## Quick Usage (Original interface)
 
-The code is compatible with the original interface which requies a particular formatting of the data to be fed into the tokenizers
+The code is compatible with the original interface which requies to preprocess the data before passing them to the tokenizers.
 Here's an example: 
 
-```
+```python
 from cidereval.tokenizer import PTBTokenizer
 from cider.tokenier import SimpleTokenizer # for the spacy tokenizer
 from cidereval import CiderD, Cider
@@ -88,7 +89,7 @@ print(scoreD)
 ## Reference corpus different from coco-val
 You can use ```gts``` as reference corpus and compute the idf w.r.t to it by initializing the scorer in corpus mode: ```df='corpus'```
 
-```
+```python
 # tokenize gts and res
 
 # compute idf on gts
@@ -107,7 +108,7 @@ In this way the idfs are computed on-the-fly. <br>
 To **re-use them**, save them first, by calling:
 
 
-```
+```python
 scorer.save_df(df_name="path/to/new_corpus") # saving idfs
 
 ```
@@ -116,7 +117,7 @@ They will be saved in  ```path/to/new_corpus.p``` file.<br>
 Move the new idf file in ```data/``` to make it visible. <br>
 Then, initialize the scorer running:
 
-```
+```python
 scorer = Cider(df='path/to/new_corpus.p') # use new_corpus idf
 
 ```
