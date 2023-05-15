@@ -9,7 +9,7 @@ CIDEr-D (CIDEr Defended) which is more robust to gaming effects
 In this implementations we provide an alternative tokenizer to the PTBtokenizer in order to remove the java dependecy.
 The new tokenizer is based on Spacy (SimpleTokenizer.py)
 
-However, I suggest to use the original PTBTokenizer as the tokenization is not exactly the same and the former is also faster (about 3x faster) than the spacy tokenizer.
+However, we suggest to use the original PTBTokenizer as the tokenization is not exactly the same and the former is also faster (about 3x faster) than the spacy tokenizer.
 
 For detail regarding performance look [here](important_note.md).
 
