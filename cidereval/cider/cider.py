@@ -25,7 +25,7 @@ class Cider:
         Initialize the CIDEr scoring function
         : param n (int): n-gram size
         : param df (string): specifies where to get the IDF values from
-                    takes values 'corpus', 'coco-train'
+                    takes values 'corpus', 'coco-val'
         : return: None
         """
         # set cider to sum over 1 to 4-grams

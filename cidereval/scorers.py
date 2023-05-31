@@ -2,7 +2,7 @@ from cidereval import CiderD, Cider
 from cidereval.tokenizer import PTBTokenizer
 
 def _preprocess_for_cider(refs, preds):
-    """
+    r"""
     Convert preds and refs to the cider data format
     
     refs: List[List[str]]
@@ -18,15 +18,24 @@ def _preprocess_for_cider(refs, preds):
     res = []
     
     for i, (caps, pred) in enumerate(zip(refs, preds)):
-        gts[i] = [ { 'caption': cap } for cap in caps ]
+        gts[i] = [{ 'caption': cap } for cap in caps ]
         
         res.append({ 'image_id': i,
                     'caption': pred})
     return gts, res
 
-def cider(refs, preds, df="corpus"):
+def cider(predictions, references, df="coco-val"):
+    r"""
+    Compute the cider score for the given predictions and references
 
-    gts, res = _preprocess_for_cider(refs, preds)
+    predictions : List[str], model's predictions
+    references: List[List[str]], references
+    df: str, either 'coco-val' or 'corpus' (default : 'coco-val'). If 'coco-val' the TF-IDF COCO validation split is \\
+    used. If 'corpus' the TF-IDF is computed over the reference set provided.
+
+    returns {"avg_score": mp.float, "scores": np.array(np.float)}
+    """
+    gts, res = _preprocess_for_cider(references, predictions)
     tokenizer_res = PTBTokenizer('res')
     tokenizer_gts = PTBTokenizer('gts')
 
@@ -37,12 +46,22 @@ def cider(refs, preds, df="corpus"):
 
     score, scores = scorer.compute_score(_gts, _res)
 
-    return { "avg_score": score, "scores": scores}
+    return {"avg_score": score, "scores": scores}
 
 
-def ciderD(refs, preds, df="corpus"):
+def ciderD(predictions, references, df="coco-va"):
+    r"""
+    Compute the ciderD score for the given predictions and references
 
-    gts, res = _preprocess_for_cider(refs, preds)
+    predictions : List[str], model's predictions
+    references: List[List[str]], references
+    df: str, either 'coco-val' or 'corpus' (default : 'coco-val'). If 'coco-val' the TF-IDF COCO validation split is \\
+    used. If 'corpus' the TF-IDF is computed over the reference set provided.
+
+    returns {"avg_score": mp.float, "scores": np.array(np.float)}
+    """
+
+    gts, res = _preprocess_for_cider(references, predictions)
     tokenizer_res = PTBTokenizer('res')
     tokenizer_gts = PTBTokenizer('gts')
 
