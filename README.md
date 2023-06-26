@@ -1,4 +1,4 @@
-Pythonic wrappers for Consensus-based Image Description Evaluation (CIDEr Code)
+Consensus-based Image Description Evaluation metric (CIDEr Code) for Image Captioning.
 ===================
 
 Evaluation code for CIDEr metric. Provides CIDEr as well as
