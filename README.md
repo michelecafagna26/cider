@@ -4,9 +4,6 @@ Consensus-based Image Description Evaluation metric (CIDEr Code) for Image Capti
 Evaluation code for CIDEr metric. Provides CIDEr as well as
 CIDEr-D (CIDEr Defended) which is more robust to gaming effects
 
-## System requirements for running ##
-- python 3.6 
-
 ## System requirements for testing and PTBTokenizer
 - python 3.6
 - java 1.8.0
