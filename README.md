@@ -41,7 +41,7 @@ cider(predictions=preds, references=refs)
 #cider_scores is a dict-like object with "avg_score" and "scores"
 
 ```
-By default, it uses the **coco-val idf**. To compute the idfs on your references pass df='corpus'.
+By default, it uses the **coco-val idf**. To compute the idfs on your references call `cider(predictions=preds, references=refs, df='corpus')`.
 
 
 ## Important Note
