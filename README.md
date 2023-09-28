@@ -59,9 +59,7 @@ For more detail this implementation look [here](detail.md).
 - PTBTokenizer: We use the [Stanford Tokenizer](http://nlp.stanford.edu/software/tokenizer.shtml) which is included in [Stanford CoreNLP 3.4.1](http://nlp.stanford.edu/software/corenlp.shtml).
 - CIDEr: [CIDEr: Consensus-based Image Description Evaluation] (http://arxiv.org/pdf/1411.5726.pdf)
 - python3 adaptation of the original repo: https://github.com/daqingliu/cider
-
-## Developers ##
-- Ramakrishna Vedantam (Virgina Tech) (origianl repo)
-
+- 
 ## Acknowledgments ##
 - MS COCO Caption Evaluation Team
+- Ramakrishna Vedantam (author of the original repo)
