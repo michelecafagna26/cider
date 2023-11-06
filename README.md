@@ -51,8 +51,8 @@ The new tokenizer is based on Spacy (SimpleTokenizer.py)
 
 However, we suggest using the original PTBTokenizer as the tokenization is not exactly the same and the former is also faster (about 3x faster) than the spacy tokenizer.
 
-For detail regarding performance look [here](important_note.md).
-For more detail this implementation look [here](detail.md).
+For detail regarding performance look at this [Important Note](important_note.md).
+For more detail regarding the implementation look at the [original readme](detail.md).
 
 ## References ##
 
